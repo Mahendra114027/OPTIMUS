@@ -1,2 +1,2 @@
 # OPTIMUS
-Under Construction
+1. Added Speech to Text recognition System.
