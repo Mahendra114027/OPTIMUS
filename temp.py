@@ -4,64 +4,72 @@ import speech_recognition as sr
 from os import path
 import re
 
-CHUNK = 1024
-FORMAT = pyaudio.paInt16
-CHANNELS = 2
-RATE = 44100
-RECORD_SECONDS = 5
-WAVE_OUTPUT_FILENAME = "output.wav"
 
-p = pyaudio.PyAudio()
+r = sr.Recognizer()
+m = sr.Microphone()
 
-stream = p.open(format=FORMAT,
-                channels=CHANNELS,
-                rate=RATE,
-                input=True,
-                frames_per_buffer=CHUNK)
+# CHUNK = 1024
+# FORMAT = pyaudio.paInt16
+# CHANNELS = 2
+# RATE = 44100
+# RECORD_SECONDS = 5
+# WAVE_OUTPUT_FILENAME = "output.wav"
 
-print("* recording")
+# p = pyaudio.PyAudio()
 
-frames = []
+# stream = p.open(format=FORMAT,
+#                 channels=CHANNELS,
+#                 rate=RATE,
+#                 input=True,
+#                 frames_per_buffer=CHUNK)
 
-for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
-    data = stream.read(CHUNK)
-    frames.append(data)
+# print("* recording")
 
-print("* done recording")
+# frames = []
 
-stream.stop_stream()
-stream.close()
-p.terminate()
+# for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
+#     data = stream.read(CHUNK)
+#     frames.append(data)
 
-wf = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
-wf.setnchannels(CHANNELS)
-wf.setsampwidth(p.get_sample_size(FORMAT))
-wf.setframerate(RATE)
-wf.writeframes(b''.join(frames))
-wf.close()
+# print("* done recording")
+
+# stream.stop_stream()
+# stream.close()
+# p.terminate()
+
+# wf = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
+# wf.setnchannels(CHANNELS)
+# wf.setsampwidth(p.get_sample_size(FORMAT))
+# wf.setframerate(RATE)
+# wf.writeframes(b''.join(frames))
+# wf.close()
 
 ###################
 
-AUDIO_FILE = path.join(path.dirname(path.realpath(__file__)), "output.wav")
-
-r = sr.Recognizer()
-with sr.AudioFile(AUDIO_FILE) as source:
-    audio = r.record(source)
-
 try:
-    audio_text = r.recognize_google(audio)
-    print audio_text
-except sr.UnknownValueError:
-    print("could not understand audio")
-except sr.RequestError as e:
-    print("Could not request results from Google Speech Recognition service; {0}".format(e))
+    #set threhold level
+    with m as source: r.adjust_for_ambient_noise(source)
+    # print("dynamic energy ratio {}",r.dynamic_energy_ratio)
+    # print("dynamic energy adjacement dampning {}",r.dynamic_energy_adjustment_damping)
+    # print("energy threshold{}",r.energy_threshold)
+    # print("non speaking duration ", r.non_speaking_duration)
+    # print ("pause duration ",r.pause_threshold)
+    # print("Set minimum energy threshold to {}".format(r.energy_threshold))
 
+    # obtain audio from the microphone
+    with sr.Microphone() as source:
+        print("Say something!")
+        audio = r.listen(source)
 
+except:
+    pass
 ####################
 
 
 def analysis():
-    ai = audio_text
+    x = r.recognize_google(audio)
+    print x
+    ai = x
     parts = re.split('\s|(?<!\d)[,.](?!\d)', ai)
 
     l = len(parts)
