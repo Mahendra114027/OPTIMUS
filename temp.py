@@ -65,22 +65,22 @@ def analysis():
     parts = re.split('\s|(?<!\d)[,.](?!\d)', ai)
 
     l = len(parts)
-    print(l)
+    #print(l)
     array = [
         ["angry", 'aggressive', 'aggressive', 'annoyed', 'bitter', 'boiling', 'cross', 'enraged', 'fuming', 'hateful'
-            , 'hostile', 'incensed', 'indignant', 'inflamed', 'infuriated', 'insulting', 'irritated', 'offensive',
+            , 'hostile', 'incensed','indignant', 'inflamed', 'infuriated','insulting','irritated', 'offensive',
          'provoked'
             , 'resentful', 'sore', 'unpleasant', 'upset', 'worked', 'up',
-         'annoyed ', ' apathetic ', ' bored ', ' certain ', ' cold ', ' crabby ', ' cranky ', ' critical ', ' cross ',
-         ' detached ', 'displeased',
-         'frustrated', ' impatient ', ' indifferent ', ' irritated ', ' peeved ', ' rankled',
+         'annoyed', 'apathetic', 'bored', 'certain', 'cold', 'crabby', 'cranky', 'critical', 'cross',
+         'detached', 'displeased',
+         'frustrated', 'impatient', 'indifferent', 'irritated', 'peeved', 'rankled',
 
-         'affronted ', ' aggravated ', ' angry ', ' antagonized ', ' arrogant ', ' bristling ', 'exasperated ',
-         ' incensed ', ' indignant', ' inflamed ', ' mad ', ' offended ', ' resentful ', ' sarcastic',
+         'affronted', 'aggravated', 'angry', 'antagonized', 'arrogant', 'bristling', 'exasperated',
+         'incensed', 'indignant', 'inflamed', 'mad', 'offended', 'resentful', 'sarcastic',
 
-         'aggressive ', ' sppalled ', ' belligerent ', ' bitter ', ' contemptuous ', ' disgusted ', ' furious ',
-         ' hateful ', ' hostile', ' irate ', ' livid ', ' menacing ', ' outraged ', ' ranting ', ' raving ',
-         ' seething ', ' spiteful ', ' vengeful ', 'vicious ', ' vindictive ', ' violent','hate'
+         'aggressive', ' sppalled', 'belligerent', 'bitter', 'contemptuous', 'disgusted', 'furious',
+         'hateful', 'hostile', 'irate', 'livid', 'menacing', 'outraged', 'ranting', 'raving',
+         'seething', 'spiteful', 'vengeful', 'vicious', 'vindictive', 'violent','hate'
          ]
 
         , ["sad", 'aggressive', 'annoyed', 'bitter', 'boiling', 'cross', 'enraged', 'fuming', 'hateful', 'hostile',
@@ -88,45 +88,45 @@ def analysis():
             , 'indignant', 'inflamed', 'infuriated', 'insulting', 'anguish', 'desolate', 'desperate', 'dismayed',
            'grief', 'grieved'
             , 'lonely', 'mournful', 'pained', 'pessimistic', 'sorrowful', 'tearful', 'unhappy',
-           'contemplative ', ' disappointed ', ' disconnected ', ' distracted ', ' grounded ', ' listless ', ' low ',
-           ' regretful ', ' steady ', ' wistful',
+           'contemplative', 'disappointed', 'disconnected', 'distracted', 'grounded', 'listless', 'low',
+           'regretful', 'steady', 'wistful',
 
-           'dejected ', ' discouraged ', ' dispirited ', ' down ', ' downtrodden ', ' drained ', ' forlorn ',
-           ' gloomy ', ' grieving ', ' heavy-hearted ',
-           'melancholy', ' mournful ', ' sad ', ' sorrowful ', ' weepy ',
+           'dejected', 'discouraged', 'dispirited', 'down', 'downtrodden', 'drained', 'forlorn',
+           'gloomy', 'grieving', 'heavy-hearted',
+           'melancholy', 'mournful', 'sad', 'sorrowful', 'weepy',
 
-           'anguished ', ' bereaved ', ' bleak ', ' depressed ', ' despairing ', ' despondent ', ' grief-stricken ',
-           ' Heartbroken ', ' Hopeless ',
-           'inconsolable', ' morose']
+           'anguished', 'bereaved', 'bleak', 'depressed', 'despairing', 'despondent', 'grief-stricken',
+           'Heartbroken', 'Hopeless',
+           'inconsolable', 'morose']
 
         , ["happy", 'playful', 'gay', 'joyous', 'lucky', 'fortunate', 'delighted', 'overjoyed', 'gleeful', 'thankful',
            'important'
-            , 'festive', 'ecstatic', 'satisfied', 'glad', 'cheerful', 'sunny', 'merry', 'elated', 'jubilant', 'amused ',
-           ' calm ', ' encouraged ', ' friendly ', ' hopeful ', ' inspired ', ' jovial ', ' open ', ' peaceful ',
-           ' smiling',
+            , 'festive', 'ecstatic', 'satisfied', 'glad', 'cheerful', 'sunny', 'merry', 'elated', 'jubilant', 'amused',
+           'calm', 'encouraged', 'friendly', 'hopeful', 'inspired', 'jovial', 'open', 'peaceful',
+           'smiling',
 
-           'cheerful ', ' contented ', ' delighted ', ' excited ', ' fulfilled ', ' glad ', ' gleeful ', ' gratified ',
-           ' happy ', ' healthy', ' joyful',
-           'lively ', ' merry ', ' optimistic ', ' playful ', ' pleased ', ' proud ', ' rejuvenated ', ' satisfied',
+           'cheerful', 'contented', 'delighted', 'excited', 'fulfilled', 'glad', 'gleeful', 'gratified',
+           'happy', 'healthy', 'joyful',
+           'lively', 'merry', 'optimistic', 'playful', 'pleased', 'proud', 'rejuvenated', 'satisfied',
 
-           'awe-filled ', ' blissful ', ' ecstatic ', ' egocentric ', ' elated ', ' enthralled ', ' euphoric ',
-           ' exhilarated ', ' giddy ', ' jubilant ', ' manic', ' overconfident ', ' overjoyed ', ' radiant ',
-           ' rapturous ', ' self-aggrandized ', ' thrilled','love']
+           'awe-filled', 'blissful', 'ecstatic', 'egocentric', 'elated', 'enthralled', 'euphoric',
+           'exhilarated', 'giddy', 'jubilant', 'manic', 'overconfident', 'overjoyed', 'radiant',
+           'rapturous', 'self-aggrandized', 'thrilled','love']
 
         ,
         ["afraid", 'alarmed', 'anxious', 'cowardly', 'doubtful', 'fearful', 'frightened', 'menaced', 'nervous', 'panic'
             , 'quaking', 'restless', 'scared', 'shaky', 'suspicious', 'terrified', 'threatened', 'timid', 'wary',
-         'worried', 'alert ', ' apprehensive ', ' cautious ', ' concerned ', ' confused ', ' curious ',
-         ' disconcerted ', ' disoriented ',
-         ' disquieted ', ' doubtful', ' edgy ', ' fidgety ', ' hesitant ', ' indecisive ', ' insecure ',
-         ' instinctive ', ' intuitive ', ' leery ', ' pensive ', ' shy ', ' timid ',
-         'uneasy ', ' watchful',
+         'worried', 'alert', 'apprehensive', 'cautious', 'concerned', 'confused', 'curious',
+         'disconcerted', 'disoriented',
+         'disquieted', 'doubtful', 'edgy', 'fidgety', 'hesitant', 'indecisive', 'insecure',
+         'instinctive', 'intuitive', 'leery', 'pensive', 'shy', 'timid',
+         'uneasy', 'watchful',
 
-         'afraid ', ' alarmed ', ' anxious ', ' aversive ', ' distrustful ', ' fearful ', ' jumpy ', ' nervous ',
-         ' perturbed ', ' rattled ', ' shaky ',
-         'startled', ' suspicious ', ' unnerved ', ' unsettled ', ' wary ', ' worried',
+         'afraid', 'alarmed', 'anxious', 'aversive', 'distrustful', 'fearful', 'jumpy', 'nervous',
+         'perturbed', 'rattled', 'shaky',
+         'startled', 'suspicious', 'unnerved', 'unsettled', 'wary', 'worried',
 
-         'dread ', ' horrified ', ' panicked ', ' paralyzed ', ' petrified ', ' phobic ', ' shocked ', ' terrorized']
+         'dread', 'horrified', 'panicked', 'paralyzed', 'petrified', 'phobic', 'shocked', 'terrorized']
     ]
 
 
@@ -140,7 +140,7 @@ def analysis():
 
     freq1 = [0, 0, 0, 0]
 
-    print(freq)
+    #print(freq)
     rows = len(array)
     for row in xrange(rows):
         cols = len(array[row])
@@ -157,7 +157,7 @@ def analysis():
                     # print(array[row][0])
                     temp = array[row][0]
                     #temp=temp.tolower()
-                    print(temp)
+                    #print(temp)
                     if temp == 'angry':
                         freq1[0] = freq1[0] + 1
                     elif temp == "sad":
@@ -166,9 +166,9 @@ def analysis():
                         freq1[2] = freq1[2] + 1
                     elif temp == "afraid":
                         freq1[3] = freq1[3] + 1;
-        print(freq1)
+        #print(freq1)
         i = i + 1
-    print(freq1)
+    #print(freq1)
 
     f = 0
     i = 0
