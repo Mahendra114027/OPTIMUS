@@ -6,3 +6,10 @@ $('.control').click( function(){
 $('.icon-close').click( function(){
   $('body').removeClass('mode-search');
 });
+
+var wavesurfer = WaveSurfer.create({
+    container: '#waveform',
+    waveColor: 'violet',
+    progressColor: 'purple'
+});
+wavesurfer.load('output.wav');
