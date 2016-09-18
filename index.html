@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html >
+  <head>   
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,300'>
+<link rel='stylesheet prefetch' href='http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+
+        <style>
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+      html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  color: #2d2d2d;
+  letter-spacing: 0.2px;
+}
+body .wrapper {
+  padding: 50px;
+}
+body.mode-search {
+  overflow: hidden;
+}
+body.mode-search .form,
+body.mode-search .icon-close {
+  opacity: 1;
+  transform: none;
+  pointer-events: all;
+}
+body.mode-search .control .icon-search {
+  opacity: 0;
+}
+body.mode-search .control .btn {
+  transform: scale(70);
+}
+
+.header {
+  position: relative;
+  height: 50%;
+  width: 100%;
+  background: #42A5F5;
+  color: #FFF;
+}
+.header .header-content {
+  padding: 70px 50px;
+}
+.header .header-content h1, .header .header-content h2 {
+  font-weight: 200;
+}
+
+.control {
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  bottom: -32px;
+  right: 50px;
+  cursor: pointer;
+}
+.control .icon-search,
+.control .icon-close {
+  transition: 0.2s ease-in-out;
+}
+.control:hover .btn {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* Button */
+.btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  background: #0D47A1;
+  outline: 0;
+  transform-origin: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-search {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 28px;
+}
+
+.icon-close {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  color: #FFF;
+  font-size: 80px;
+  opacity: 0;
+  transform: translate(10px, 0) rotate(90deg);
+  transition: all 0.3s ease-in-out;
+}
+
+.form {
+  height: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  margin-top: -40px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(40px, 0);
+  transition: all 0.3s ease-in-out;
+}
+.form input {
+  color: #fff;
+  font-size: 54px;
+  border: 0;
+  background: transparent;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  outline: 0;
+  font-weight: 200;
+}
+.form ::-webkit-input-placeholder {
+  color: #EEE;
+}
+.form :-moz-placeholder {
+  color: #EEE;
+  opacity: 1;
+}
+.form ::-moz-placeholder {
+  color: #EEE;
+  opacity: 1;
+}
+.form :-ms-input-placeholder {
+  color: #EEE;
+}
+
+    </style>
+
+    
+        <script src="js/prefixfree.min.js"></script>
+
+    
+  </head>
+
+  <body background="bg.jpeg">
+
+    <div class='header'>
+  <div class='header-content'>
+    <h1 style="color:black;">Optimus</h1>
+    <h2 style="color:black;">Mood recognition by speech</h2>
+  </div>
+  <div class='control' tabindex='1'>
+    <div class='btn'></div>
+    <img class='icon-search' style="width:50px;height:50px" src="mic.png">
+  </div>
+</div>
+<i class='icon-close ion-ios-close-empty'></i>
+<div style="color:white;"class='form'>
+  <h1>Recording....</h1>
+</div>
+<div class='wrapper'>
+</div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+        <script src="js/index.js"></script>
+  </body>
+</html>
